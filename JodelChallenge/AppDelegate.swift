@@ -14,6 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let flickrService = FlickrService(client: URLSessionHTTPClient(config: .default))
+        let viewModel = FeedViewModel(photosService: flickrService)
+        let feedVC = FeedViewController(viewModel: viewModel)
+        window?.rootViewController = UINavigationController(rootViewController: feedVC)
+        window?.makeKeyAndVisible()
         return true
     }
 }

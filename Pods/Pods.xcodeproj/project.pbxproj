@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -1762,7 +1762,7 @@
 				LastUpgradeCheck = 1300;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -2031,36 +2031,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		205CCD75B11817E297B0EE3CFE73A4BC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6231CCBA2C52BCA82CD1C77DB1F2AB6 /* FlickrKit.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/FlickrKit/FlickrKit-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = FlickrKit;
-				PRODUCT_NAME = FlickrKit;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		6750CE523D5478D06D24DFA61E9DAE60 /* Debug */ = {
+		4D061B8FF88710EBBED2F8E24B428FDA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AF08FC1C5A26F3A0F9D8600E5A65929E /* FlickrKit.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2080,12 +2054,11 @@
 			};
 			name = Debug;
 		};
-		84AFA18C6E3F759C955B5B70B9ED4832 /* Release */ = {
+		508D1A0649726AD82591EBB51921E77C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F136A3BDBF6E9F3BA91E37028FEE354 /* Pods-JodelChallenge.release.xcconfig */;
+			baseConfigurationReference = F00DCB82F2A0E6545F37A7D0C318FF1A /* Pods-JodelChallenge.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2098,6 +2071,29 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5E997E72C279013C88A83670FD8084B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6231CCBA2C52BCA82CD1C77DB1F2AB6 /* FlickrKit.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/FlickrKit/FlickrKit-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = FlickrKit;
+				PRODUCT_NAME = FlickrKit;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2169,6 +2165,28 @@
 			};
 			name = Debug;
 		};
+		8E067C31B85DCFF0647B382C48E52B68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F136A3BDBF6E9F3BA91E37028FEE354 /* Pods-JodelChallenge.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		9E406C6AAF85E580207CD97B0044DEAB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2231,28 +2249,6 @@
 			};
 			name = Release;
 		};
-		F21304111E3F8F3416FD9D475637E04F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F00DCB82F2A0E6545F37A7D0C318FF1A /* Pods-JodelChallenge.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2268,8 +2264,8 @@
 		A4AB5D2B4E2C4EE3F9CE354B4238A9E6 /* Build configuration list for PBXNativeTarget "Pods-JodelChallenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F21304111E3F8F3416FD9D475637E04F /* Debug */,
-				84AFA18C6E3F759C955B5B70B9ED4832 /* Release */,
+				508D1A0649726AD82591EBB51921E77C /* Debug */,
+				8E067C31B85DCFF0647B382C48E52B68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2277,8 +2273,8 @@
 		EF50140F63C959CFD1D9988CCC2BE539 /* Build configuration list for PBXNativeTarget "FlickrKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6750CE523D5478D06D24DFA61E9DAE60 /* Debug */,
-				205CCD75B11817E297B0EE3CFE73A4BC /* Release */,
+				4D061B8FF88710EBBED2F8E24B428FDA /* Debug */,
+				5E997E72C279013C88A83670FD8084B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
