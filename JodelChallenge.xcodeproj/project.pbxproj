@@ -29,6 +29,14 @@
 		7894939E28C2BA8C0020FD54 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7894939D28C2BA8C0020FD54 /* ActivityIndicator.swift */; };
 		789493A328C39E150020FD54 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789493A228C39E150020FD54 /* ErrorTracker.swift */; };
 		789493A628C3A5640020FD54 /* FlickrMockResponse.json in Sources */ = {isa = PBXBuildFile; fileRef = 789493A528C3A5640020FD54 /* FlickrMockResponse.json */; };
+		789493A828C3B08F0020FD54 /* MockFlickrService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789493A728C3B08F0020FD54 /* MockFlickrService.swift */; };
+		789493B628C3C4480020FD54 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 789493B528C3C4480020FD54 /* RxBlocking */; };
+		789493B828C3C4480020FD54 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 789493B728C3C4480020FD54 /* RxCocoa */; };
+		789493BA28C3C4480020FD54 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 789493B928C3C4480020FD54 /* RxRelay */; };
+		789493BC28C3C4480020FD54 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 789493BB28C3C4480020FD54 /* RxSwift */; };
+		789493BE28C3C4480020FD54 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 789493BD28C3C4480020FD54 /* RxTest */; };
+		789493BF28C3C5360020FD54 /* FlickrMockResponse.json in Sources */ = {isa = PBXBuildFile; fileRef = 789493A528C3A5640020FD54 /* FlickrMockResponse.json */; };
+		789493C028C3C5EE0020FD54 /* FlickrMockResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 789493A528C3A5640020FD54 /* FlickrMockResponse.json */; };
 		78D64FC728C231E3005953D4 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 78D64FC628C231E3005953D4 /* Differentiator */; };
 		78D64FC928C231E3005953D4 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 78D64FC828C231E3005953D4 /* RxDataSources */; };
 		78D64FCC28C23275005953D4 /* RxKingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78D64FCB28C23275005953D4 /* RxKingfisher */; };
@@ -89,6 +97,7 @@
 		7894939D28C2BA8C0020FD54 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		789493A228C39E150020FD54 /* ErrorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
 		789493A528C3A5640020FD54 /* FlickrMockResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FlickrMockResponse.json; sourceTree = "<group>"; };
+		789493A728C3B08F0020FD54 /* MockFlickrService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFlickrService.swift; sourceTree = "<group>"; };
 		78D64FCD28C2328E005953D4 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A7096B2AF22017DBA2B785C4 /* Pods-JodelChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JodelChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-JodelChallenge/Pods-JodelChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,10 +107,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789493B828C3C4480020FD54 /* RxCocoa in Frameworks */,
 				78D64FCC28C23275005953D4 /* RxKingfisher in Frameworks */,
+				789493BA28C3C4480020FD54 /* RxRelay in Frameworks */,
 				E3F2831F9F2C8EF141DFDAF9 /* libPods-JodelChallenge.a in Frameworks */,
 				78D64FC728C231E3005953D4 /* Differentiator in Frameworks */,
 				78D64FC928C231E3005953D4 /* RxDataSources in Frameworks */,
+				789493BC28C3C4480020FD54 /* RxSwift in Frameworks */,
 				7894939228C2A7F60020FD54 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789493BE28C3C4480020FD54 /* RxTest in Frameworks */,
+				789493B628C3C4480020FD54 /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +179,7 @@
 				3FBCC74B1F73AE9200D35147 /* Assets.xcassets */,
 				3FBCC74D1F73AE9200D35147 /* LaunchScreen.storyboard */,
 				3FBCC7501F73AE9200D35147 /* Info.plist */,
+				789493A528C3A5640020FD54 /* FlickrMockResponse.json */,
 			);
 			path = JodelChallenge;
 			sourceTree = "<group>";
@@ -174,7 +189,6 @@
 			children = (
 				3FBCC7591F73AE9200D35147 /* JodelChallengeTests.swift */,
 				3FBCC75B1F73AE9200D35147 /* Info.plist */,
-				789493A528C3A5640020FD54 /* FlickrMockResponse.json */,
 			);
 			path = JodelChallengeTests;
 			sourceTree = "<group>";
@@ -193,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				78072A3728C11BF90059F895 /* FlickrService.swift */,
+				789493A728C3B08F0020FD54 /* MockFlickrService.swift */,
 				78D64FCD28C2328E005953D4 /* Network.swift */,
 			);
 			path = Service;
@@ -264,6 +279,9 @@
 				78D64FC828C231E3005953D4 /* RxDataSources */,
 				78D64FCB28C23275005953D4 /* RxKingfisher */,
 				7894939128C2A7F60020FD54 /* SnapKit */,
+				789493B728C3C4480020FD54 /* RxCocoa */,
+				789493B928C3C4480020FD54 /* RxRelay */,
+				789493BB28C3C4480020FD54 /* RxSwift */,
 			);
 			productName = JodelChallenge;
 			productReference = 3FBCC7411F73AE9200D35147 /* JodelChallenge.app */;
@@ -283,6 +301,10 @@
 				3FBCC7571F73AE9200D35147 /* PBXTargetDependency */,
 			);
 			name = JodelChallengeTests;
+			packageProductDependencies = (
+				789493B528C3C4480020FD54 /* RxBlocking */,
+				789493BD28C3C4480020FD54 /* RxTest */,
+			);
 			productName = JodelChallengeTests;
 			productReference = 3FBCC7551F73AE9200D35147 /* JodelChallengeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -323,6 +345,7 @@
 				78D64FC528C231E3005953D4 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				78D64FCA28C23274005953D4 /* XCRemoteSwiftPackageReference "RxKingfisher" */,
 				7894939028C2A7F60020FD54 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				789493B428C3C4480020FD54 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 3FBCC7421F73AE9200D35147 /* Products */;
 			projectDirPath = "";
@@ -339,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789493C028C3C5EE0020FD54 /* FlickrMockResponse.json in Resources */,
 				3FBCC74F1F73AE9200D35147 /* LaunchScreen.storyboard in Resources */,
 				3FBCC74C1F73AE9200D35147 /* Assets.xcassets in Resources */,
 			);
@@ -379,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789493BF28C3C5360020FD54 /* FlickrMockResponse.json in Sources */,
 				0A0367FB22C4E2BE0041C31E /* FeedViewController.swift in Sources */,
 				3FBCC7451F73AE9200D35147 /* AppDelegate.swift in Sources */,
 				7894938428C23C700020FD54 /* FlickrResponse.swift in Sources */,
@@ -397,6 +422,7 @@
 				78072A3D28C11DC10059F895 /* ViewModelType.swift in Sources */,
 				7894939E28C2BA8C0020FD54 /* ActivityIndicator.swift in Sources */,
 				7894939A28C2B2890020FD54 /* FullScreenTransitionManager.swift in Sources */,
+				789493A828C3B08F0020FD54 /* MockFlickrService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +579,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 229W9R2K22;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				INFOPLIST_FILE = JodelChallenge/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -576,6 +603,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 229W9R2K22;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				INFOPLIST_FILE = JodelChallenge/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -675,6 +703,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		789493B428C3C4480020FD54 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		78D64FC528C231E3005953D4 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
@@ -698,6 +734,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7894939028C2A7F60020FD54 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		789493B528C3C4480020FD54 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 789493B428C3C4480020FD54 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		789493B728C3C4480020FD54 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 789493B428C3C4480020FD54 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		789493B928C3C4480020FD54 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 789493B428C3C4480020FD54 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		789493BB28C3C4480020FD54 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 789493B428C3C4480020FD54 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		789493BD28C3C4480020FD54 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 789493B428C3C4480020FD54 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
 		};
 		78D64FC628C231E3005953D4 /* Differentiator */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -7,30 +7,49 @@
 //
 
 import XCTest
+import Foundation
+import RxTest
+import RxBlocking
+
 @testable import JodelChallenge
 
 class JodelChallengeTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    let mockService: PhotosService = MockFlickrService()
+    
+    func test_decoding() {
+        let firstPhoto = try! mockService.photos(for: 1).toBlocking().first()
+        
+        let id = "52328546498"
+        let owner = "114799538@N08"
+        let secret = "0a61ae3a69"
+        let server = "65535"
+        let farm = 66
+        let title = "Nature heals soul ( Reverence Part II )"
+        
+
+        XCTAssertEqual(firstPhoto?.first?.id, id)
+        XCTAssertEqual(firstPhoto?.first?.owner, owner)
+        XCTAssertEqual(firstPhoto?.first?.secret, secret)
+        XCTAssertEqual(firstPhoto?.first?.server, server)
+        XCTAssertEqual(firstPhoto?.first?.farm, farm)
+        XCTAssertEqual(firstPhoto?.first?.title, title)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func test_constructed_url() {
+        if let firstPhoto = try! mockService.photos(for: 1).toBlocking().first()?.first {
+            let feedCellViewModel = FeedCellViewModel(with: firstPhoto)
+            
+            XCTAssertTrue(feedCellViewModel.imageUrl.value!.contains(String(firstPhoto.farm)))
+            XCTAssertTrue(feedCellViewModel.imageUrl.value!.contains(String(firstPhoto.server)))
+            XCTAssertTrue(feedCellViewModel.imageUrl.value!.contains(firstPhoto.secret))
+            XCTAssertTrue(feedCellViewModel.imageUrl.value!.contains(firstPhoto.id))
+        } else {
+            XCTFail()
         }
     }
     
+    
+    
 }
+

@@ -20,14 +20,8 @@ class FeedCellViewModel: TableViewCellViewModel {
         self.photo = photo
         super.init()
         title.accept(photo.title)
+        imageUrl.accept(buildUrl(with: photo.farm, server: photo.server, id: photo.id, secret: photo.secret))
         
-        if let farm = photo.farm,
-            let server = photo.server,
-            let id = photo.id,
-            let secret = photo.secret
-        {
-            imageUrl.accept(buildUrl(with: farm, server: server, id: id, secret: secret))
-        }
     }
     
     fileprivate func buildUrl(with farm: Int, server: String, id: String, secret: String) -> String {
