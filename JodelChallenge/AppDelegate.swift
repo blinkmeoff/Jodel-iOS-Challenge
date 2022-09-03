@@ -16,7 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        let flickrService = FlickrService(client: URLSessionHTTPClient(config: .default))
+        
+        guard let flickrApiKey = Bundle.main.object(forInfoDictionaryKey: "FlickrApiKey") as? String else {
+             print("Failed to get flickr api key")
+             return true
+        }
+        
+        let flickrService = FlickrService(client: URLSessionHTTPClient(config: .default), apiKey: flickrApiKey)
         let viewModel = FeedViewModel(photosService: flickrService)
         let feedVC = FeedViewController(viewModel: viewModel)
         window?.rootViewController = UINavigationController(rootViewController: feedVC)
