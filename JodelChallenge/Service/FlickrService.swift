@@ -17,19 +17,22 @@ struct FlickrService: PhotosService {
     
     private let client: HTTPClient
     private let baseURL: String
+    private let apiKey: String
     
     init(
         client: HTTPClient,
-        baseURL: String = "https://api.flickr.com/services/rest/"
+        baseURL: String = "https://api.flickr.com/services/rest/",
+        apiKey: String
     ) {
         self.client = client
         self.baseURL = baseURL
+        self.apiKey = apiKey
     }
     
     func photos(for page: Int) -> Observable<[FlickrPhoto]> {
         var urlComponents = URLComponents(string: baseURL)!
 
-        let queryItems = [URLQueryItem(name: "api_key", value: "92111faaf0ac50706da05a1df2e85d82"),
+        let queryItems = [URLQueryItem(name: "api_key", value: apiKey),
                           URLQueryItem(name: "format", value: "json"),
                           URLQueryItem(name: "method", value: "flickr.interestingness.getList"),
                           URLQueryItem(name: "nojsoncallback", value: "1"),
