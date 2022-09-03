@@ -1,0 +1,6 @@
+module Pods_JodelChallenge {
+  umbrella header "Pods-JodelChallenge-umbrella.h"
+
+  export *
+  module * { export * }
+}
