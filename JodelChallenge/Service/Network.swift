@@ -10,6 +10,18 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+enum ApiError: Error {
+    case serverError
+    case decodingError
+    
+    var message: String {
+        switch self {
+            case .serverError: return "It's not you, it's us!"
+            case .decodingError: return "Decoding? Ugh.."
+        }
+    }
+}
+
 protocol HTTPClient {
     func call<T: Decodable>(_ request: URLRequest)  -> Observable<T>
 }
@@ -34,10 +46,10 @@ class URLSessionHTTPClient: HTTPClient {
                                                                    from: responseData)
                             observer.onNext(objs)
                         } else {
-                            observer.onError(error!)
+                            observer.onError(ApiError.serverError)
                         }
                     } catch {
-                        observer.onError(error)
+                        observer.onError(ApiError.decodingError)
                     }
                 }
                 observer.onCompleted()

@@ -24,7 +24,6 @@ class FeedViewModel: ViewModel, ViewModelType {
     
     private let photosService: PhotosService
     private var page = 1
-    private let disposeBag = DisposeBag()
 
     init(photosService: PhotosService) {
         self.photosService = photosService
@@ -34,31 +33,38 @@ class FeedViewModel: ViewModel, ViewModelType {
     func transform(input: Input) -> Output {
         let elements = BehaviorRelay<[FeedCellViewModel]>(value: [])
         
-        Observable.of(input.refreshTrigger, input.headerRefresh).merge().flatMapLatest { [weak self] (_) -> Observable<([FlickrPhoto])> in
+        let headerRefresh = Observable.of(input.refreshTrigger, input.headerRefresh).merge().flatMapLatest { [weak self] (_) -> Observable<([FlickrPhoto])> in
             guard let strongSelf = self else { return Observable.just(([])) }
             strongSelf.page = 1
             
             return strongSelf.photosService.photos(for: strongSelf.page)
                 .trackActivity(strongSelf.headerLoading)
+                .trackError(strongSelf.error)
+                .catch{ _ in Observable.just([]) }
         }.map { $0.map({ (photo) -> FeedCellViewModel in
             FeedCellViewModel(with: photo)
-        })}.subscribe(onNext: { (items) in
+        })}.share()
+        
+        headerRefresh.subscribe(onNext: { (items) in
             elements.accept(items)
         }).disposed(by: disposeBag)
         
-        input.loadMoreTrigger.flatMapLatest { [weak self] (_) -> Observable<([FlickrPhoto])> in
+        let footerRefresh = input.loadMoreTrigger.flatMapLatest { [weak self] (_) -> Observable<([FlickrPhoto])> in
             guard let strongSelf = self else { return Observable.just(([])) }
             strongSelf.page = strongSelf.page + 1
             print("Load page number - \(strongSelf.page)")
             return strongSelf.photosService.photos(for: strongSelf.page)
                 .observe(on: ConcurrentDispatchQueueScheduler(qos: .userInteractive))
                 .trackActivity(strongSelf.footerLoading)
+                .catch{ _ in Observable.just([]) }
         }
         .observe(on: MainScheduler.instance)
         .map { $0.map({ (photo) -> FeedCellViewModel in
             FeedCellViewModel(with: photo)
-        })}
-        .subscribe(onNext: { (items) in
+        })}.share()
+        
+        
+        footerRefresh.subscribe(onNext: { (items) in
             elements.accept(elements.value + items)
         }).disposed(by: disposeBag)
         

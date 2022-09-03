@@ -20,6 +20,7 @@ class FeedCell : TableViewCell {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
+        view.kf.indicatorType = .activity
         view.snp.makeConstraints {
             $0.height.equalTo(180)
         }

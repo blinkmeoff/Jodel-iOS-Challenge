@@ -84,10 +84,24 @@ class FeedViewController : UITableViewController {
                 fullScreenImageViewController.transitioningDelegate = fullScreenTransitionManager
                 self?.present(fullScreenImageViewController, animated: true)
                 self?.fullScreenTransitionManager = fullScreenTransitionManager
-
             }
             .disposed(by: disposeBag)
+        
+        viewModel.parsedError.asObservable().map { $0.message }
+        .observe(on: MainScheduler.instance)
+        .subscribe(onNext: { [weak self] msg in
+            self?.showError(msg: msg)
+        }).disposed(by: disposeBag)
     }
     
     
+}
+
+extension UIViewController {
+    func showError(msg: String) {
+        let alertController = UIAlertController(title: msg, message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel) { _ in }
+        alertController.addAction(action)
+        present(alertController, animated: true, completion: nil)
+    }
 }

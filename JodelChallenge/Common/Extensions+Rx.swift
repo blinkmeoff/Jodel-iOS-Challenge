@@ -42,6 +42,14 @@ extension Observable where Element: OptionalType {
 }
 
 extension ObservableType {
+
+    func asDriverOnErrorJustComplete() -> Driver<Element> {
+        return asDriver { error in
+            assertionFailure("Error \(error)")
+            return Driver.empty()
+        }
+    }
+
     func mapToVoid() -> Observable<Void> {
         return map { _ in }
     }
