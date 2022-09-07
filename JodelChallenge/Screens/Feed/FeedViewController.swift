@@ -76,7 +76,7 @@ class FeedViewController : UITableViewController {
         Observable
             .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(FeedCellViewModel.self))
             .bind { [weak self] indexPath, model in
-                let tag = Int(model.photo.id ?? "") ?? 0
+                let tag = Int(model.photo.id) ?? 0
                 let cell = self?.tableView.cellForRow(at: indexPath) as? FeedCell
                 let fullScreenTransitionManager = FullScreenTransitionManager(anchorViewTag: tag)
                 let fullScreenImageViewController = FullScreenImageViewController(image: cell?.photoImageView.image, tag: tag)

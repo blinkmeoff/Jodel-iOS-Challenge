@@ -69,7 +69,7 @@ class FeedCell : TableViewCell {
             .drive(photoImageView.rx.imageURL).disposed(by: cellDisposeBag)
         
         viewModel.title.asDriver().drive(titleLabel.rx.text).disposed(by: cellDisposeBag)
-        photoImageView.tag = Int(viewModel.photo.id ?? "0") ?? 0
+        photoImageView.tag = Int(viewModel.photo.id) ?? 0
     }
 }
 

@@ -10,8 +10,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-
-
 class FeedCellViewModel: TableViewCellViewModel {
 
     let photo: FlickrPhoto
@@ -21,7 +19,6 @@ class FeedCellViewModel: TableViewCellViewModel {
         super.init()
         title.accept(photo.title)
         imageUrl.accept(buildUrl(with: photo.farm, server: photo.server, id: photo.id, secret: photo.secret))
-        
     }
     
     fileprivate func buildUrl(with farm: Int, server: String, id: String, secret: String) -> String {
